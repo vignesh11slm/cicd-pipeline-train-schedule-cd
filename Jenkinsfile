@@ -14,6 +14,7 @@ pipeline {
             }
             steps {
                 input 'Does the staging environment look OK?'
+                input 'Can it go to production ?'
                 milestone(1)
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     sshPublisher(
